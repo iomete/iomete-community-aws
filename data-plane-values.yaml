@@ -1,0 +1,52 @@
+# data plane admin user
+adminUser:
+  username: "admin"
+  email: "admin@example.com"
+  firstName: Admin
+  lastName: Admin
+  temporaryPassword: "admin" # you will be prompted to change this on first login
+
+database:
+  host: "mysql"
+  port: "3306"
+  user: "iomete_user"
+  password: "iomete_pass"
+  # if passwordSecret is set, the password will be read from the secret
+  passwordSecret: {}
+    # name: byo-db-creds
+  # key: password
+  prefix: "iomete_" # all IOMETE databases should be prefixed with this. See database init script.
+
+  # Provide database admin credentials to create the IOMETE databases, otherwise please run the database init script manually.
+  adminCredentials:
+     user: "root"
+     password: "onXB8UbEqYzkQFgbXe8F#C5ckmyKix&"
+    # # if passwordSecret is set, the password will be read from the secret
+    # passwordSecret: {}
+    #   # name: byo-db-creds
+  #   # key: password
+
+istioGateway:
+  enabled: true
+  # if you want to enable TLS, set the tlsCertSecretName
+  # name of the secret with certificates. Secret should contain 2 files: tls.crt and tls.key
+  # if redirectHttpToHttps is set to true, this secret must be provided to handle https traffic
+  tlsCertSecretName: ""
+
+spark:
+  logLevel: warn
+
+jupyter:
+  authToken: "jupyter"
+
+keycloak:
+  enabled: true
+  adminUser: "kc_admin"
+  adminPassword: "Admin_123"
+  # if adminPasswordSecret is set, the password will be read from the secret
+  adminPasswordSecret: {}
+  # name: secret-name
+  # key: password
+
+
+clusterDomain: cluster.local
