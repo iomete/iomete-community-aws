@@ -1,7 +1,6 @@
 module "data-plane-aws" {
-  source                    = "iomete/data-plane-aws/aws"
-  version                   = "~> 2.2.0"
-
+  source                    = "iomete/iomete-data-plane/aws"
+  version                   = "1.9.0"
 
   # Change below values to your preferred values
 
